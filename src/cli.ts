@@ -1,9 +1,6 @@
 import yargs from 'yargs';
 
 const args = yargs.argv;
-const compressArg = args.compress;
-const resizeRateArg = Number(args['resize-rate']);
-const qualityArg = Number(args.quality);
 
 type Options = {
   compress: boolean;
@@ -12,9 +9,10 @@ type Options = {
 };
 
 const options: Options = {
-  compress: compressArg !== false,
-  quality: qualityArg !== NaN ? qualityArg : 75,
-  resizeRate: resizeRateArg !== NaN ? resizeRateArg : undefined,
+  compress: args.compress !== false,
+  quality: args.quality !== undefined ? Number(args.quality) : 75,
+  resizeRate:
+    args['resize-rate'] !== undefined ? Number(args['resize-rate']) : undefined,
 };
 
 export const getOptions = (): Options => {
