@@ -7,8 +7,6 @@ export const resize = async (
 ): Promise<string> => {
   const { filename, dirname, extension } = getPath(imagePath);
 
-  console.log(resizeRate);
-
   try {
     const metaData = await sharp(imagePath).metadata();
     const { width, height } = metaData;
