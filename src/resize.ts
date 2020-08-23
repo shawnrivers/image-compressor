@@ -28,7 +28,8 @@ export const resize = async (
 
       await sharp(imagePath)
         .resize(Math.round(width / resizeRate))
-        .toFile(`${dirname}/${filename}-compressed${extension}`);
+        .jpeg()
+        .toFile(`${dirname}/${filename}-compressed.jpg`);
 
       return outputPath;
     } else {

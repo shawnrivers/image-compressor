@@ -25,11 +25,11 @@ A node app for compressing and resizing images
 - usage: `--resize-rate=2`
   - this will resize images to half the width and size
 
-`--no-compress`
+`compress`
 
-- only resize but will not compress
-- default: `true`
-- usage: `--no-compress`
+- compress the image
+- default: `false`
+- usage: `--compress`
 
 `--quality`
 
