@@ -1,10 +1,8 @@
 import sharp from 'sharp';
-import * as path from 'path';
+import { getPath } from './file';
 
 export const resize = async (imagePath: string): Promise<string> => {
-  const imageDirname = path.dirname(imagePath);
-  const imageExtension = path.extname(imagePath);
-  const imageFilename = path.basename(imagePath, imageExtension);
+  const { filename, dirname, extension } = getPath(imagePath);
 
   try {
     const metaData = await sharp(imagePath).metadata();
@@ -22,25 +20,23 @@ export const resize = async (imagePath: string): Promise<string> => {
       }
 
       console.log(
-        `[${imageFilename}${imageExtension}] Reducing width by ${resizeRate} times...`
+        `[${filename}${extension}] Reducing width by ${resizeRate} times...`
       );
 
-      const outputPath = `${imageDirname}/${imageFilename}-resized${imageExtension}`;
+      const outputPath = `${dirname}/${filename}-resized${extension}`;
 
       sharp(imagePath)
         .resize(Math.round(width / resizeRate))
-        .toFile(`${imageDirname}/${imageFilename}-resized${imageExtension}`)
+        .toFile(`${dirname}/${filename}-resized${extension}`)
         .then(() => {
-          console.log(`[${imageFilename}${imageExtension}] Finished!`);
+          console.log(`[${filename}${extension}] Finished!`);
         });
 
       return outputPath;
     } else {
-      throw new Error(`[${imageFilename}${imageExtension}] No dimension data`);
+      throw new Error(`[${filename}${extension}] No dimension data`);
     }
   } catch (error) {
-    throw new Error(
-      `[${imageFilename}${imageExtension}] Something went wrong: ${error}`
-    );
+    throw new Error(`[${filename}${extension}] Something went wrong: ${error}`);
   }
 };
