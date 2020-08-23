@@ -23,11 +23,11 @@ export const resize = async (imagePath: string): Promise<string> => {
         `[${filename}${extension}] Reducing width by ${resizeRate} times...`
       );
 
-      const outputPath = `${dirname}/${filename}-resized${extension}`;
+      const outputPath = `${dirname}/${filename}-compressed${extension}`;
 
-      sharp(imagePath)
+      await sharp(imagePath)
         .resize(Math.round(width / resizeRate))
-        .toFile(`${dirname}/${filename}-resized${extension}`)
+        .toFile(`${dirname}/${filename}-compressed${extension}`)
         .then(() => {
           console.log(`[${filename}${extension}] Finished!`);
         });
