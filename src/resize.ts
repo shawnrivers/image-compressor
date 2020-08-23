@@ -24,18 +24,11 @@ export const resize = async (
         }
       }
 
-      console.log(
-        `[${filename}${extension}] Reducing width by ${resizeRate} times...`
-      );
-
       const outputPath = `${dirname}/${filename}-compressed${extension}`;
 
       await sharp(imagePath)
         .resize(Math.round(width / resizeRate))
-        .toFile(`${dirname}/${filename}-compressed${extension}`)
-        .then(() => {
-          console.log(`[${filename}${extension}] Finished!`);
-        });
+        .toFile(`${dirname}/${filename}-compressed${extension}`);
 
       return outputPath;
     } else {

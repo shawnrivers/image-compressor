@@ -13,7 +13,6 @@ export const compress = async (
 ) => {
   const { filename, dirname, extension } = getPath(imagePath);
 
-  console.log(`[${filename}${extension}] Processing...`);
   const outputPath = `${dirname}/${filename}${extension}`;
 
   await imagemin([imagePath], {
