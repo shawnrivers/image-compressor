@@ -1,5 +1,38 @@
+## Intro
+
+A node app for compressing and resizing images
+
 ## Usage 
 
-```shell
-npm start <image path>
-```
+### Basic 
+
+1. Build
+    ```shell
+    npm run build
+    ```
+2. Run
+    ```shell
+    npm start <image path> -- --<flag>
+    ```
+
+### Flags
+
+`--resize-rate`
+
+- decides how many times to reduce image resolution
+- value: number larger than 0
+  - default: by default, it will reduce the smallest dimension into a number between 1000px and 2000px
+- usage: `--resize-rate=2`
+  - this will resize images to half the width and size
+
+`--no-compress`
+
+- only resize but will not compress
+- default: `true`
+- usage: `--no-compress`
+
+`--quality`
+
+- the quality of compression
+- value: integer between 1 and 100. When the value is large, the image quality will be better, but the size will be larger.
+  - default: `75`
