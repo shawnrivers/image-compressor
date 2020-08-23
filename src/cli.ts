@@ -9,7 +9,7 @@ type Options = {
 };
 
 const options: Options = {
-  compress: args.compress !== false,
+  compress: args.compress !== undefined ? args.compress === true : false,
   quality: args.quality !== undefined ? Number(args.quality) : 75,
   resizeRate:
     args['resize-rate'] !== undefined ? Number(args['resize-rate']) : undefined,
