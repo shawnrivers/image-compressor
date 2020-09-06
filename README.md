@@ -2,6 +2,11 @@
 
 A node app for compressing and resizing images
 
+## Libraries
+
+- `sharp` for image resizing
+- `imagemin-mozjpeg` for image compression
+
 ## Usage 
 
 ### Basic 
