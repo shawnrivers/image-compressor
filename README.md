@@ -22,13 +22,13 @@ A node app for compressing and resizing images
 
 ### Flags
 
-`--resize-rate`
+`--rate`
 
 - decides how many times to reduce image resolution
 - value: number larger than 0
   - default: by default, it will reduce the smallest dimension into a number between 1000px and 2000px
 - usage: 
-  - e.g. `--resize-rate=2`
+  - e.g. `--rate=2`
   - this will resize images to half the width and size
 
 `--compress`

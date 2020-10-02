@@ -12,7 +12,7 @@ const options: Options = {
   compress: args.compress !== undefined ? args.compress === true : true,
   quality: args.quality !== undefined ? Number(args.quality) : 75,
   resizeRate:
-    args['resize-rate'] !== undefined ? Number(args['resize-rate']) : undefined,
+    args.rate !== undefined ? Number(args.rate) : undefined,
 };
 
 export const getOptions = (): Options => {
@@ -22,7 +22,7 @@ export const getOptions = (): Options => {
 
   if (options.resizeRate) {
     if (options.resizeRate < 0) {
-      throw new Error('"resize-rate" must be a number larger than 1');
+      throw new Error('"rate" must be a number larger than 1');
     }
   }
 
