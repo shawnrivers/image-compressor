@@ -8,7 +8,7 @@ export const compress = async (
   options: {
     quality: number;
   } = {
-    quality: 75,
+    quality: 90,
   }
 ) => {
   const { filename, dirname, extension } = getPath(imagePath);

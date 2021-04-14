@@ -42,6 +42,6 @@ A node app for compressing and resizing images
 
 - the quality of compression
 - value: integer between 1 and 100. When the value is large, the image quality will be better, but the size will be larger.
-  - default: `75`
+  - default: `90`
 - usage:
   - e.g. `--quality=80`
