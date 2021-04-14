@@ -7,18 +7,18 @@ A node app for compressing and resizing images
 - `sharp` for image resizing
 - `imagemin-mozjpeg` for image compression
 
-## Usage 
+## Usage
 
-### Basic 
+### Basic
 
 1. Build
-    ```shell
-    npm run build
-    ```
+   ```shell
+   npm run build
+   ```
 2. Run
-    ```shell
-    npm start <image path> -- --<flag>
-    ```
+   ```shell
+   npm start <image path> -- --<flag>
+   ```
 
 ### Flags
 
@@ -27,7 +27,7 @@ A node app for compressing and resizing images
 - decides how many times to reduce image resolution
 - value: number larger than 0
   - default: by default, it will reduce the smallest dimension into a number between 1000px and 2000px
-- usage: 
+- usage:
   - e.g. `--rate=2`
   - this will resize images to half the width and size
 
